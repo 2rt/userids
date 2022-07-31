@@ -1,11 +1,24 @@
-import ctypes, requests
+import ctypes, requests, random
 from threading import Thread
 
 threadc = 250
 
 useridz = open('userids.txt','r',errors='ignore').read().splitlines()
 total = len(useridz)
+s = requests.session()
+proxy = set()
 
+with open("proxies.txt", "r") as f:
+    file_lines1 = f.readlines()
+    for line1 in file_lines1:
+        proxy.add(line1.strip())
+        
+proxies = {
+    'http': 'http://'+random.choice(list(proxy))
+}
+
+
+r = requests.get('http://www.roblox.com/',proxies=proxies)
 done = 0
 output = []
 
