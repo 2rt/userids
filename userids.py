@@ -1,7 +1,7 @@
 import ctypes, requests, random
 from threading import Thread
 
-threadc = 250
+threadc = 100
 
 useridz = open('userids.txt','r',errors='ignore').read().splitlines()
 total = len(useridz)
